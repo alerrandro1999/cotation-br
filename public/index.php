@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cotação</title>
-</head>
-<body>
-    
-</body>
-</html>
+<?php
+
+require __DIR__ . '/../bootstrap/bootstrap.php';
+
+foreach ($api::ToArray() as $value) {
+    foreach ($value as $value) {
+        $ob = (object)$value;
+        echo $ob->stock;
+    }
+}
