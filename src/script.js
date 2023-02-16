@@ -20,10 +20,15 @@ function updateStock() {
         }) => {
             for (const stock of stocks) {
                 const elementFather = document.getElementById(stock.stock);
-                const value = elementFather.querySelector(".valor");
-                const volume = elementFather.querySelector(".volume");
-                value.textContent = moedareal.format(stock.close);
-                volume.textContent = `Volume: ${stock.volume}`;
+                if (elementFather) {
+                    const value = elementFather.querySelector(".valor");
+                    const volume = elementFather.querySelector(".volume");
+                    value.textContent = moedareal.format(stock.close);
+                    volume.textContent = `Volume: ${stock.volume}`;
+                }else {
+                    console.error("erro: ", stock);
+                }
+               
             }
         })
 
@@ -48,4 +53,4 @@ fetch('https://brapi.dev/api/quote/list')
 
 setInterval(() => {
     updateStock();
-}, 1000);
+}, 10000);
